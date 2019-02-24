@@ -1,19 +1,20 @@
-import yaml
-import worker
 import jinja2
 
-#单个Task
 class task(object):
-    def __init__(self,url,args,processer):
-        self.vars=vars
+    def __init__(self,url,variables,task):
+        self.variabless=variables
         self.url=url
-        self.args=args
-        self.processer=processer
+        self.task=task
+    def run(self):
+        pass
 
-#variables，存储着目前全部变量的Dict
-#tasks,
 class tasks(object):
     def __init__(self,url,variables,tasks):
         self.variables=variables
         self.url=url
         self.tasks=tasks
+
+    def run(self):
+        for task in self.tasks:
+            self.runner=task(self.url,self.variables,task)
+            self.runner.run()

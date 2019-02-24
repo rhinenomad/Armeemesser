@@ -8,3 +8,6 @@ class tester(object):
         self.variables = self.yaml['vars']
         self.tasks = self.yaml['tasks']
         self.runner=procedure.tasks(self.url,self.variables,self.tasks)
+
+    def run(self):
+        self.runner.run()
