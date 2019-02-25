@@ -8,9 +8,9 @@ def plog(str,level=0):
     if level==0:
         print(str)
     elif level==1:
-        print("\033[1;32;44m%s\033[0m",str)
+        print('\033[1;32;44m %s \033[0m' % str)
     else:
-        print("\033[1;31;44m%s\033[0m", str)
+        print('\033[1;31;44m %s \033[0m' % str)
 
 def task_runner(task,variable,url):
     plog(task)
