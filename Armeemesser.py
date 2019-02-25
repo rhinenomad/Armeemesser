@@ -1,5 +1,8 @@
 import yaml
 import argparse
+import string
+import config
+
 
 def plog(str,level=0):
     if level==0:
@@ -9,7 +12,7 @@ def plog(str,level=0):
     else:
         print("\033[1;31;44m%s\033[0m", str)
 
-def task_runner(task,variable):
+def task_runner(task,variable,url):
     pass
 
 def main():
@@ -18,15 +21,15 @@ def main():
     parser.add_argument('-u','--url',help='')
     args=parser.parse_args()
     if args.file:
-        script_name = args.file
-    else:
-        script_name = "test.yml"
-    plog(script_name)
-    test_script = yaml.load(open(script_name))
+        config.file = args.file
+    if args.url:
+        config.url = args.url
+    plog(config.file)
+    test_script = yaml.load(open(config.file))
     variable = test_script['vars']
     tasks=test_script['tasks']
     for task in tasks:
-        task_runner(task,variable)
+        task_runner(task,variable,config.url)
     pass
 
 if __name__ == '__main__':
