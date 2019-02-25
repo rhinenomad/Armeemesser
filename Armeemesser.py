@@ -13,6 +13,9 @@ def plog(str,level=0):
         print("\033[1;31;44m%s\033[0m", str)
 
 def task_runner(task,variable,url):
+    plog(task)
+    plog(variable)
+    plog(url)
     pass
 
 def main():

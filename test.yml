@@ -1,0 +1,6 @@
+---
+vars:
+  - cookies: xxx
+tasks:
+  - name: xxx
+    fafawf: xfawf
